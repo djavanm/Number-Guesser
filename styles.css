@@ -27,7 +27,7 @@ header {
 
 main {
 	width: 50%;
-	height: 500px;
+	height: 600px;
 	display: inline-block;
 	background-color: #F7F7F7;
 	float: left;
@@ -39,7 +39,7 @@ main {
 section {
 	height: 33.3%;
 	background-color: #ffffff;
-	border: 1px solid black;
+	border: 1px solid #D0D2D3;
 	min-width: 300px;
 	padding: 10px;
 }
@@ -60,7 +60,7 @@ article {
 	margin: 10px 25px 10px 25px;
 	background-color: #ffffff;
 	color: #404041;;
-	border: 1px solid black;
+	border: 1px solid #D0D2D3;
 	padding: 10px;
 
 }	
@@ -78,34 +78,80 @@ label {
 
 }
 
-.set-range {
+section.set-range {
 	margin: 10px;
 	height: 20%;
 	background-color: #ffffff;
 	color: #6E6E6E;
 }
 
-.set-range-button {
+button.set-range-button {
 	float: right;
 	background-color: #404041;
 	color: #ffffff;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
-	height: 25px;
+	height: 30px;
 	width: 100px;
 	right: 0px;
 	border-radius: 25px;
 	position: relative;
 	top: 25px;
+	font-weight: 600;
 }
 
-.challengers {
+p.start-range,
+p.end-range {
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+section.challengers {
 	height: 50%;
 	margin: 10px;
 }
 
+input.player-one,
+input.player-two {
+	width: 300px;
+	height: 30px;
+}
+
+form.player-one,
+form.player-two {
+	margin-right: 10px;
+}
+
+input.player-one-guess,
+input.player-two-guess {
+	width: 150px;
+	height: 30px;
+}
+
+div.game-buttons {
+	margin-top: 40px;
+	display: flex;
+	align-items: flex-end;
+}
+
+button.guess-button,
+button.reset-button,
+button.clear-button {
+	background-color: #404041;
+	color: #ffffff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	height: 35px;
+	width: 160px;
+	border-radius: 25px;
+	margin-right: 10px;
+	font-weight: 600;
+	background-color: #D0D2D3;
+
+}
+
 .latest-score {
-	height: 30%;
+	height: 25%;
 	margin: 10px;
 }
 
@@ -114,6 +160,5 @@ label {
 	height: 30px;
 	width: 150px;
 }
-
 
 	/* Results*/
