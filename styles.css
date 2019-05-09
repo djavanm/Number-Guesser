@@ -14,10 +14,7 @@ body {
 	background-color: #D0D2D3;
 	color: #404041;
 	padding: 5px;
-
-
 }
-
 
 	/*Header*/
 	
@@ -49,14 +46,14 @@ h2 {
 
 main {
 	width: 50%;
-	height: 600px;
+	height: 650px;
 	display: inline-block;
 	background-color: #F7F7F7;
 	float: left;
 	display: flex;
 	flex-direction: column;
 	border-right: 1px solid black;
-	min-width: 525px;
+	min-width: 510px;
 }
 
 section {
@@ -69,14 +66,14 @@ section {
 
 aside {
 	width: 50%;
-	height: 500px;
+	height: 650px;
 	display: inline-block;
 	background-color: #D1D2D4;
 	color: white;
 	float: right;
 	display: flex;
 	flex-direction: column;
-	min-width: 525px;
+	min-width: 510px;
 }
 
 article {
@@ -96,6 +93,7 @@ form {
 }
 h3 {
 	color: #404041;
+	display: block;
 }
 
 label {
@@ -132,7 +130,7 @@ p.end-range {
 }
 
 section.challengers {
-	height: 50%;
+	height: 45%;
 	margin: 10px;
 }
 
@@ -179,7 +177,7 @@ button.clear-button {
 }
 
 .latest-score {
-	height: 25%;
+	height: 30%;
 	margin: 10px;
 }
 
@@ -187,6 +185,29 @@ button.clear-button {
 .max-range {
 	height: 30px;
 	width: 150px;
+}
+
+.guess-container {
+	display: flex;
+	justify-content: center;
+}
+
+.p1-current-guess,
+.p2-current-guess {
+	height: 150px;
+	width: 150px;
+	text-align: center;
+}
+
+.p1-current-guess {
+	border-right: 1px solid;
+}
+
+.p1-guess-num,
+.p2-guess-num {
+	font-size: 60px;
+	color: #DD1972;
+	font-weight: 600;
 }
 
 	/* Results*/
