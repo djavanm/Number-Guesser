@@ -1,4 +1,4 @@
-/* On Page Load */
+/* GLOBALS*/
 var guessNum = getRandomNumber(1, 100);
 console.log(guessNum);
 var updateButton = document.querySelector('.set-range-button');
@@ -14,7 +14,15 @@ updateButton.addEventListener('click', convertMinMax);
 function convertMinMax() {
 	var minNum = document.querySelector('.min-range').value;
   	var maxNum = document.querySelector('.max-range').value;
+  	updateMinMaxHtml(minNum, maxNum);
   	updateRandomNumber(minNum, maxNum);
+}
+
+function updateMinMaxHtml(min, max) {
+	var start = document.querySelector('.start-range');
+	var end = document.querySelector('.end-range');
+	start.innerText = min;
+	end.innerText = max;
 }
 
 function updateRandomNumber(min, max) {
