@@ -123,8 +123,8 @@ button.set-range-button {
 
 }
 
-p.start-range,
-p.end-range {
+.start-range,
+.end-range {
 	font-weight: 600;
 	text-decoration: underline;
 }
@@ -160,7 +160,7 @@ div.game-buttons {
 .guess-button,
 .reset-button,
 .clear-button {
-	background-color: #7f7f7f;;
+	background-color: #7f7f7f;
 	color: #ffffff;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
@@ -195,7 +195,7 @@ button.clear-button {
 .p1-current-guess,
 .p2-current-guess {
 	height: 150px;
-	width: 150px;
+	width: 200px;
 	text-align: center;
 }
 
@@ -210,4 +210,52 @@ button.clear-button {
 	font-weight: 600;
 }
 
+.player-one-name,
+.player-two-name {
+	font-weight: 600;
+	color: #404041;
+	font-size: 16px;
+}
+
+.current-guess-text {
+	color: #7f7f7f;
+	font-weight: 300;
+}
+
+.p1-guess-hint,
+.p2-guess-hint {
+	font-size: 20px;
+	font-weight: 300;
+}
+
 	/* Results*/
+
+.results {
+	text-align: center;
+}
+.winner-banner {
+	font-size: 36px;
+	font-weight: 300;
+	color: #7f7f7f;
+}
+
+span.player-one-name,
+span.player-two-name {
+	font-size: 20px;
+}
+
+.vs {
+	font-size: 12px;
+}
+
+.winner {
+	font-size: 30px;
+	padding-left: 5px;
+}
+
+.challenger-container {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-top: 2px solid gray;
+	border-bottom: 2px solid gray;
+}
