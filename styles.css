@@ -52,7 +52,7 @@ main {
 	float: left;
 	display: flex;
 	flex-direction: column;
-	border-right: 1px solid black;
+	border: 1px solid #B5B6B6;
 	min-width: 510px;
 }
 
@@ -81,7 +81,7 @@ article {
 	margin: 10px 25px 10px 25px;
 	background-color: #ffffff;
 	color: #404041;;
-	border: 1px solid #D0D2D3;
+	border: 1px solid #B5B6B6;
 	padding: 10px;
 
 }	
@@ -205,9 +205,10 @@ button.clear-button {
 
 .p1-guess-num,
 .p2-guess-num {
-	font-size: 60px;
+	font-size: 70px;
 	color: #DD1972;
-	font-weight: 600;
+	font-weight: 700;
+	margin: -10px;
 }
 
 .player-one-name,
@@ -226,6 +227,7 @@ button.clear-button {
 .p2-guess-hint {
 	font-size: 20px;
 	font-weight: 300;
+	margin: -10px;
 }
 
 	/* Results*/
@@ -258,4 +260,11 @@ span.player-two-name {
 	padding-bottom: 5px;
 	border-top: 2px solid gray;
 	border-bottom: 2px solid gray;
+}
+
+/* Button Styling*/
+
+button:hover,
+button:active { 
+  background-color: #DD1972;
 }
