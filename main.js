@@ -1,12 +1,7 @@
-var minNum = document.querySelector('.min-range').value;
-var maxNum = document.querySelector('.max-range').value;
-
-// minNum = parseInt(minNum, 10);
-// maxNum = parseInt(maxNum, 10);
-
-var guessNum = getRandomNumber(minNum, maxNum);
+/* On Page Load */
+var guessNum = getRandomNumber(1, 100);
+console.log(guessNum);
 var updateButton = document.querySelector('.set-range-button');
-
 
 function getRandomNumber(min, max) {
     var randNum = Math.random() * (max - min) + min;
@@ -14,6 +9,17 @@ function getRandomNumber(min, max) {
     return randNum;
 }
 
-console.log(guessNum);
-updateButton.addEventListener('click', getRandomNumber);
+updateButton.addEventListener('click', convertMinMax);
 
+function convertMinMax() {
+	var minNum = document.querySelector('.min-range').value;
+  	var maxNum = document.querySelector('.max-range').value;
+  	updateRandomNumber(minNum, maxNum);
+}
+
+function updateRandomNumber(min, max) {
+    var newNum = Math.random() * (max - min) + min;
+    newNum = Math.floor(newNum);
+    guessNum = newNum;
+    console.log(guessNum);
+}
