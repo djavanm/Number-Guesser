@@ -59,8 +59,9 @@ function submitPlayerNames() {
 }
 
 function submitGuess() {
-	var p1Guess = document.querySelector('.player-one-guess').value;
-	var p2Guess = document.querySelector('.player-two-guess').value;
+	p1Guess = document.querySelector('.player-one-guess').value;
+	p2Guess = document.querySelector('.player-two-guess').value;
+	updateGuessHTML(p1Guess, p2Guess);
 	console.log(p1Guess);
 	console.log(p2Guess);
 	// assigns new values to p1guess and p2guess
@@ -74,7 +75,12 @@ function updateChallengerHTML(player1, player2) {
 	// Updastes HTML with new player name values
 }
 
-
+function updateGuessHTML(player1, player2) {
+	var playerOneGuess = document.querySelector('.p1-guess-num');
+	var playerTwoGuess = document.querySelector('.p2-guess-num');
+	playerOneGuess.innerText = player1;
+	playerTwoGuess.innerText = player2;
+}
 
 
 
