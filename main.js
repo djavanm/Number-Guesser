@@ -10,7 +10,7 @@ var guessButton = document.querySelector('.guess-button');
 
 	// EVENT LISTENERS // 
 updateButton.addEventListener('click', convertMinMax);
-guessButton.addEventListener('click',)
+// guessButton.addEventListener('click',)
 
 	// GLOBAL FUNCTIONS // 
 
