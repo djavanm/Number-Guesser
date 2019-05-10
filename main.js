@@ -1,4 +1,4 @@
-	//GLOBAL VARIABLES //
+	// GLOBAL VARIABLES //
 
 var guessNum = getRandomNumber(1, 100);
 console.log(guessNum);
@@ -28,7 +28,7 @@ function convertMinMax() {
   	var maxNum = parseInt(document.querySelector('.max-range').value);
   	updateMinMaxHtml(minNum, maxNum);
   	updateRandomNumber(minNum, maxNum);
-  	// .updateButton - takes min/max values and passes them
+  	// .updateButton - takes min/max values and passes them as integers
 }
 
 function updateMinMaxHtml(min, max) {
@@ -48,12 +48,14 @@ function updateRandomNumber(min, max) {
 }
 
 function submitPlayerNames() {
-	var playerOne = document.querySelector('#p1').value;
-	var playerTwo = document.querySelector('#p2').value;
+	playerOne = document.querySelector('#p1').value;
+	playerTwo = document.querySelector('#p2').value;
 	console.log(playerOne);
 	console.log(playerTwo);
+	updateChallengerHTML(playerOne, playerTwo)
 	submitGuess();
 	// assigns new values to player one and player two
+	// invokes submitGuess to assign guesses
 }
 
 function submitGuess() {
@@ -61,4 +63,19 @@ function submitGuess() {
 	var p2Guess = document.querySelector('.player-two-guess').value;
 	console.log(p1Guess);
 	console.log(p2Guess);
+	// assigns new values to p1guess and p2guess
 }
+
+function updateChallengerHTML(player1, player2) {
+	var playerOneName = document.querySelector('.player-one-name');
+	var playerTwoName = document.querySelector('.player-two-name');
+	playerOneName.innerText = player1;
+	playerTwoName.innerText = player2;
+	// Updastes HTML with new player name values
+}
+
+
+
+
+
+
