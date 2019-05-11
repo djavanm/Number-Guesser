@@ -74,6 +74,8 @@ function submitGuess() {
 	console.log(p2Guess);
 	p1CheckGuess();
 	p2CheckGuess();
+	clearButton.disabled = false;
+	resetButton.disabled = false;
 	// assigns new values to p1guess and p2guess
 }
 
@@ -95,8 +97,8 @@ function updateGuessHTML(player1, player2) {
 
 function p1CheckGuess() {
   if(p1Guess === guessNum) {
-  	p1GuessHint.innerText = 'You win!';
-    console.log('Player one wins!');
+  	p1GuessHint.innerText = 'BOOM!';
+    console.log('BOOM!');
   } else if(p1Guess < guessNum) {
   	p1GuessHint.innerText = "that's too low!";
     console.log('player 1 is too low!');
@@ -110,8 +112,8 @@ function p1CheckGuess() {
 
 function p2CheckGuess() {
   if(p2Guess === guessNum) {
-  	p2GuessHint.innerText = 'You win!';
-    console.log('Player one wins!');
+  	p2GuessHint.innerText = 'BOOM!';
+    console.log('BOOM!');
   } else if(p2Guess < guessNum) {
   	p2GuessHint.innerText = "that's too low!";
     console.log('Player 2 is too low!');
@@ -152,4 +154,6 @@ function resetAll() {
   	minNum.innerText = '1';
   	minNum.innerTest = '100';
   	clearFieldButton();
+  	// Rest all inputs and clear inner text
 }
+
