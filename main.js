@@ -11,6 +11,7 @@ var guessButton = document.querySelector('.guess-button');
 var p1GuessHint = document.querySelector('.p1-guess-hint');
 var p2GuessHint = document.querySelector('.p2-guess-hint');
 var clearButton = document.querySelector('.clear-button');
+var resetButton = document.querySelector('.reset-button');
 
  // Guess Number on refresh! // 
  console.log(guessNum);
@@ -19,7 +20,7 @@ var clearButton = document.querySelector('.clear-button');
 updateButton.addEventListener('click', convertMinMax);
 guessButton.addEventListener('click', submitPlayerNames);
 clearButton.addEventListener('click', clearFieldButton);
-
+resetButton.addEventListener('click', resetAll);
 
 	// GLOBAL FUNCTIONS // 
 
@@ -141,4 +142,14 @@ function clearGuessNum() {
 	playerOneName.innerText = ' ';
 	playerTwoName.innerText = ' ';
 	// Clears player name HTML, Guess HTML, and guess hint HTML
+}
+
+function resetAll() {
+	getRandomNumber(1, 100);
+	console.log(guessNum);
+	var minNum = document.querySelector('.min-range');
+  	var maxNum = document.querySelector('.max-range');
+  	minNum.innerText = '1';
+  	minNum.innerTest = '100';
+  	clearFieldButton();
 }
