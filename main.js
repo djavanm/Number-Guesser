@@ -1,14 +1,17 @@
 	// GLOBAL VARIABLES //
 
 var guessNum = getRandomNumber(1, 100);
-console.log(guessNum);
 var playerOne;
 var playerTwo;
 var p1Guess;
 var p2Guess;
 var updateButton = document.querySelector('.set-range-button');
 var guessButton = document.querySelector('.guess-button');
+var p1GuessHint = document.querySelector('.p1-guess-hint');
+var p2GuessHint = document.querySelector('.p2-guess-hint');
 
+ // Guess Number on refresh! // 
+ console.log(guessNum);
 
 	// EVENT LISTENERS // 
 updateButton.addEventListener('click', convertMinMax);
@@ -59,11 +62,13 @@ function submitPlayerNames() {
 }
 
 function submitGuess() {
-	p1Guess = document.querySelector('.player-one-guess').value;
-	p2Guess = document.querySelector('.player-two-guess').value;
+	p1Guess = parseInt(document.querySelector('.player-one-guess').value);
+	p2Guess = parseInt(document.querySelector('.player-two-guess').value);
 	updateGuessHTML(p1Guess, p2Guess);
 	console.log(p1Guess);
 	console.log(p2Guess);
+	p1CheckGuess();
+	p2CheckGuess();
 	// assigns new values to p1guess and p2guess
 }
 
@@ -82,6 +87,32 @@ function updateGuessHTML(player1, player2) {
 	playerTwoGuess.innerText = player2;
 }
 
+function p1CheckGuess() {
+  if(p1Guess === guessNum) {
+  	p1GuessHint.innerText = 'You win!';
+    console.log('Player one wins!');
+  } else if(p1Guess < guessNum) {
+  	p1GuessHint.innerText = "that's too low!";
+    console.log('player 1 is too low!');
+  } else {
+  	p1GuessHint.innerText = "that's too high!";
+    console.log('player 1 is too high!');
+  };
+};
+// Checks values of player one guess, returns answers and updates HTML. May refactor.
 
 
+function p2CheckGuess() {
+  if(p2Guess === guessNum) {
+  	p2GuessHint.innerText = 'You win!';
+    console.log('Player one wins!');
+  } else if(p2Guess < guessNum) {
+  	p2GuessHint.innerText = "that's too low!";
+    console.log('Player 2 is too low!');
+  } else {
+  	p2GuessHint.innerText = "that's too high!";
+    console.log('Player 2 is too high!');
+  };
+};
+// Checks values of player one guess, returns answers and updates HTML. May refactor.
 
