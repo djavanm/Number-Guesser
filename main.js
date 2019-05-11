@@ -1,5 +1,4 @@
 	// GLOBAL VARIABLES //
-
 var guessNum = getRandomNumber(1, 100);
 var playerOne;
 var playerTwo;
@@ -90,6 +89,7 @@ function updateGuessHTML(player1, player2) {
 	var playerTwoGuess = document.querySelector('.p2-guess-num');
 	playerOneGuess.innerText = player1;
 	playerTwoGuess.innerText = player2;
+	// Adds guess number HTML 
 }
 
 function p1CheckGuess() {
@@ -128,6 +128,7 @@ function clearFieldButton() {
 	document.querySelector('.player-one-guess-form').reset();
 	document.querySelector('.player-two-guess-form').reset();
 	clearGuessNum();
+	// Clears player & guess input fields, calls clearGuessNum to clear numbers and innher HTML
 }
 
 function clearGuessNum() {
@@ -139,4 +140,5 @@ function clearGuessNum() {
 	p2GuessHint.innerText = ' ';
 	playerOneName.innerText = ' ';
 	playerTwoName.innerText = ' ';
+	// Clears player name HTML, Guess HTML, and guess hint HTML
 }
