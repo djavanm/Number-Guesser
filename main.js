@@ -5,10 +5,13 @@ var playerOne;
 var playerTwo;
 var p1Guess;
 var p2Guess;
+var playerOneName;
+var playerTwoName;
 var updateButton = document.querySelector('.set-range-button');
 var guessButton = document.querySelector('.guess-button');
 var p1GuessHint = document.querySelector('.p1-guess-hint');
 var p2GuessHint = document.querySelector('.p2-guess-hint');
+var clearButton = document.querySelector('.clear-button');
 
  // Guess Number on refresh! // 
  console.log(guessNum);
@@ -16,6 +19,8 @@ var p2GuessHint = document.querySelector('.p2-guess-hint');
 	// EVENT LISTENERS // 
 updateButton.addEventListener('click', convertMinMax);
 guessButton.addEventListener('click', submitPlayerNames);
+clearButton.addEventListener('click', clearFieldButton);
+
 
 	// GLOBAL FUNCTIONS // 
 
@@ -73,8 +78,8 @@ function submitGuess() {
 }
 
 function updateChallengerHTML(player1, player2) {
-	var playerOneName = document.querySelector('.player-one-name');
-	var playerTwoName = document.querySelector('.player-two-name');
+	playerOneName = document.querySelector('.player-one-name');
+	playerTwoName = document.querySelector('.player-two-name');
 	playerOneName.innerText = player1;
 	playerTwoName.innerText = player2;
 	// Updastes HTML with new player name values
@@ -116,3 +121,22 @@ function p2CheckGuess() {
 };
 // Checks values of player one guess, returns answers and updates HTML. May refactor.
 
+
+function clearFieldButton() {
+	document.querySelector('.player-one').reset();
+	document.querySelector('.player-two').reset();
+	document.querySelector('.player-one-guess-form').reset();
+	document.querySelector('.player-two-guess-form').reset();
+	clearGuessNum();
+}
+
+function clearGuessNum() {
+	var playerOneGuess = document.querySelector('.p1-guess-num');
+	var playerTwoGuess = document.querySelector('.p2-guess-num');
+	playerOneGuess.innerText = '--';
+	playerTwoGuess.innerText = '--';
+	p1GuessHint.innerText = ' ';
+	p2GuessHint.innerText = ' ';
+	playerOneName.innerText = ' ';
+	playerTwoName.innerText = ' ';
+}
