@@ -12,6 +12,10 @@ var p1GuessHint = document.querySelector('.p1-guess-hint');
 var p2GuessHint = document.querySelector('.p2-guess-hint');
 var clearButton = document.querySelector('.clear-button');
 var resetButton = document.querySelector('.reset-button');
+var p1NameInput = document.querySelector('.player-one');
+var p2NameInput = document.querySelector('.player-two');
+var p1GuessInput = document.querySelector('.player-one-guess');
+var p2GuessInput = document.querySelector('.player-two-guess');
 
  // Guess Number on refresh! // 
  console.log(guessNum);
@@ -21,7 +25,11 @@ updateButton.addEventListener('click', convertMinMax);
 guessButton.addEventListener('click', submitPlayerNames);
 clearButton.addEventListener('click', clearFieldButton);
 resetButton.addEventListener('click', resetAll);
-
+p1NameInput.addEventListener('keyup', enableClear);
+p2NameInput.addEventListener('keyup', enableClear);
+p1GuessInput.addEventListener('keyup', enableClear);
+p2GuessInput.addEventListener('keyup', enableClear);
+	
 	// GLOBAL FUNCTIONS // 
 
 function getRandomNumber(min, max) {
@@ -131,6 +139,7 @@ function clearFieldButton() {
 	document.querySelector('.player-one-guess-form').reset();
 	document.querySelector('.player-two-guess-form').reset();
 	clearGuessNum();
+	disableClear();
 	// Clears player & guess input fields, calls clearGuessNum to clear numbers and innher HTML
 }
 
@@ -148,12 +157,25 @@ function clearGuessNum() {
 
 function resetAll() {
 	getRandomNumber(1, 100);
+	updateMinMaxHtml(1, 100);
 	console.log(guessNum);
 	var minNum = document.querySelector('.min-range');
   	var maxNum = document.querySelector('.max-range');
   	minNum.innerText = '1';
   	minNum.innerTest = '100';
   	clearFieldButton();
-  	// Rest all inputs and clear inner text
+  	disableReset();
+  	// Reset all inputs and clear inner text
 }
 
+function enableClear() {
+	clearButton.disabled = false;
+}
+
+function disableClear() {
+	clearButton.disabled = true;
+}
+
+function disableReset() {
+	resetButton.disabled = true;
+}
