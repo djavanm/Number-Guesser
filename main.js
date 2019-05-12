@@ -159,15 +159,15 @@ function resetAll() {
 	getRandomNumber(1, 100);
 	updateMinMaxHtml(1, 100);
 	console.log(guessNum);
-	var minNum = document.querySelector('.min-range');
-  	var maxNum = document.querySelector('.max-range');
-  	minNum.innerText = '1';
-  	minNum.innerTest = '100';
+	document.querySelector('#range-form-min').reset();
+  	document.querySelector('#range-form-max').reset();
+  	document.querySelector('.min-range').innerText = '1';
+  	document.querySelector('.min-range').innerText = '100';
   	clearFieldButton();
   	disableReset();
   	// Reset all inputs and clear inner text
 }
-
+ 
 function enableClear() {
 	clearButton.disabled = false;
 }
@@ -179,3 +179,4 @@ function disableClear() {
 function disableReset() {
 	resetButton.disabled = true;
 }
+	// Enable and Disable buttons upon use
