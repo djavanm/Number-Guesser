@@ -70,6 +70,7 @@ function submitPlayerNames() {
 	console.log(playerTwo);
 	updateChallengerHTML(playerOne, playerTwo)
 	submitGuess();
+	checkWinner();
 	// assigns new values to player one and player two
 	// invokes submitGuess to assign guesses
 }
@@ -180,3 +181,14 @@ function disableReset() {
 	resetButton.disabled = true;
 }
 	// Enable and Disable buttons upon use
+
+function checkWinner() {
+	if (p1Guess === guessNum) {
+		document.querySelector('.winner').innerText = playerOne.toUpperCase();
+	}
+	if (p2Guess === guessNum) {
+		document.querySelector('.winner').innerText = playerTwo.toUpperCase();
+	}
+	document.querySelector('.player-one-vs').innerText = playerOne.toUpperCase();
+	document.querySelector('.player-two-vs').innerText = playerTwo.toUpperCase();
+}
