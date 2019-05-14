@@ -24,6 +24,7 @@
           <input class="max-range" type="number">
       </form>
       <button class="set-range-button">UPDATE</button>
+      <p id="error-range" class="error-text"></p>
     </section>
     <section class="challengers"> 
       <p class="current-range"> The Current Range is <span class="start-range">1</span> to <span class="end-range">100</span></p>
@@ -33,6 +34,7 @@
         <label for="player-one">Name</label>
         <br>
         <input id="p1" class="player-one" type="text">
+        <p id="p1-error" class="error-text"></p>
        </form>
        <form class="player-one-guess-form">
          <label for="player-one-guess">Guess</label>
@@ -50,6 +52,7 @@
          <br>
         <input class="player-two-guess" type="number">
       </form>
+      <p id="p2-error" class="error-text"></p>
       <div class="game-buttons">
         <button class="guess-button">SUBMIT GUESS</button>
         <button class="reset-button" disabled="true" >RESET GAME</button>

@@ -18,6 +18,9 @@ var p1NameInput = document.querySelector('.player-one');
 var p2NameInput = document.querySelector('.player-two');
 var p1GuessInput = document.querySelector('.player-one-guess');
 var p2GuessInput = document.querySelector('.player-two-guess');
+var errorUpdateRange = document.querySelector('#error-range');
+var p1Error = document.querySelector('#p1-error');
+var p2Error = document.querySelector('#p2-error');
 
  // Guess Number on refresh! // 
  console.log(guessNum);
@@ -197,8 +200,10 @@ function checkWinner() {
 }
 function updateValidation() {
 	if (parseInt(document.querySelector('.min-range').value) > parseInt(document.querySelector('.max-range').value)) {
-		console.log("This is not a valid input")
+		errorUpdateRange.innerText = "Minimum Range must be smaller than Maximum Range.";
+		console.log("This is not a valid input");
 	} else {
+		errorUpdateRange.innerText = " ";
 		convertMinMax();
 	}
 }
@@ -210,7 +215,8 @@ function guessValidation(){
 		parseInt(document.querySelector('.player-one-guess').value) > maxNum  ||
 		parseInt(document.querySelector('.player-two-guess').value) < minNum ||
 		parseInt(document.querySelector('.player-two-guess').value) > maxNum)) {
-		
+		p1Error.innerText = "Enter a Name";
+		p2Error.innerText = "Enter a Name";
 		console.log("This is not a valid input")
 	} else {
 		submitPlayerNames();

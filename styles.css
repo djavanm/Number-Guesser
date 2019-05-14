@@ -46,7 +46,7 @@ h2 {
 
 main {
 	width: 50%;
-	height: 650px;
+	/*height: 650px;*/
 	display: inline-block;
 	background-color: #F7F7F7;
 	float: left;
@@ -107,7 +107,7 @@ section.set-range {
 	color: #6E6E6E;
 }
 
-button.set-range-button {
+.set-range-button {
 	float: right;
 	background-color: #7f7f7f;
 	color: #ffffff;
@@ -121,6 +121,10 @@ button.set-range-button {
 	top: 25px;
 	font-weight: 600;
 
+}
+.error-text {
+	font-size: 14px;
+	color: #DD1972;
 }
 
 .start-range,
