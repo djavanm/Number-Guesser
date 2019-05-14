@@ -157,7 +157,7 @@ function clearGuessNum() {
 }
 
 function resetAll() {
-	getRandomNumber(1, 100);
+	guessNum = getRandomNumber(1, 100);
 	updateMinMaxHtml(1, 100);
 	console.log(guessNum);
 	document.querySelector('#range-form-min').reset();
