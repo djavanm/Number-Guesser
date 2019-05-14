@@ -1,5 +1,7 @@
 	// GLOBAL VARIABLES //
 var guessNum = getRandomNumber(1, 100);
+var minNum = 1;
+var maxNum = 100;
 var playerOne;
 var playerTwo;
 var p1Guess;
@@ -21,8 +23,8 @@ var p2GuessInput = document.querySelector('.player-two-guess');
  console.log(guessNum);
 
 	// EVENT LISTENERS // 
-updateButton.addEventListener('click', convertMinMax);
-guessButton.addEventListener('click', submitPlayerNames);
+updateButton.addEventListener('click', updateValidation);
+guessButton.addEventListener('click', guessValidation);
 clearButton.addEventListener('click', clearFieldButton);
 resetButton.addEventListener('click', resetAll);
 p1NameInput.addEventListener('keyup', enableClear);
@@ -40,8 +42,8 @@ function getRandomNumber(min, max) {
 }
 
 function convertMinMax() {
-	var minNum = parseInt(document.querySelector('.min-range').value);
-  	var maxNum = parseInt(document.querySelector('.max-range').value);
+	minNum = parseInt(document.querySelector('.min-range').value);
+  	maxNum = parseInt(document.querySelector('.max-range').value);
   	updateMinMaxHtml(minNum, maxNum);
   	updateRandomNumber(minNum, maxNum);
   	// .updateButton - takes min/max values and passes them as integers
@@ -139,7 +141,6 @@ function clearFieldButton() {
 	document.querySelector('.player-two').reset();
 	document.querySelector('.player-one-guess-form').reset();
 	document.querySelector('.player-two-guess-form').reset();
-	clearGuessNum();
 	disableClear();
 	// Clears player & guess input fields, calls clearGuessNum to clear numbers and innher HTML
 }
@@ -191,4 +192,25 @@ function checkWinner() {
 	}
 	document.querySelector('.player-one-vs').innerText = playerOne.toUpperCase();
 	document.querySelector('.player-two-vs').innerText = playerTwo.toUpperCase();
+}
+function updateValidation() {
+	if (parseInt(document.querySelector('.min-range').value) > parseInt(document.querySelector('.max-range').value)) {
+		console.log("This is not a valid input")
+	} else {
+		convertMinMax();
+	}
+}
+
+function guessValidation(){
+	if (isNaN(parseInt(document.querySelector('.player-one-guess').value)) || 
+		(isNaN(parseInt(document.querySelector('.player-two-guess').value)) || 
+		parseInt(document.querySelector('.player-one-guess').value) < minNum || 
+		parseInt(document.querySelector('.player-one-guess').value) > maxNum  ||
+		parseInt(document.querySelector('.player-two-guess').value) < minNum ||
+		parseInt(document.querySelector('.player-two-guess').value) > maxNum)) {
+		
+		console.log("This is not a valid input")
+	} else {
+		submitGuess();
+	}
 }
