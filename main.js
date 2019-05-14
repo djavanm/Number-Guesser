@@ -113,7 +113,6 @@ function p1CheckGuess() {
   if(p1Guess === guessNum) {
   	p1GuessHint.innerText = 'BOOM!';
     console.log('BOOM!');
-    checkWinner();
   } else if(p1Guess < guessNum) {
   	p1GuessHint.innerText = "that's too low!";
     console.log('player 1 is too low!');
@@ -129,7 +128,6 @@ function p2CheckGuess() {
   if(p2Guess === guessNum) {
   	p2GuessHint.innerText = 'BOOM!';
     console.log('BOOM!');
-    checkWinner();
   } else if(p2Guess < guessNum) {
   	p2GuessHint.innerText = "that's too low!";
     console.log('Player 2 is too low!');
@@ -189,14 +187,18 @@ function disableReset() {
 	// Enable and Disable buttons upon use
 
 function checkWinner() {
+	console.log('Running check winner')
 	if (p1Guess === guessNum) {
-		document.querySelector('.winner').innerText = playerOne.toUpperCase();
+		var winner = playerOne.toUpperCase();
+		var loser = playerTwo.toUpperCase();
+		insertWinnerCard(playerOne, playerTwo);
 	}
 	if (p2Guess === guessNum) {
-		document.querySelector('.winner').innerText = playerTwo.toUpperCase();
+		var winner = playerTwo.toUpperCase();
+		var loser = playerOne.toUpperCase();
+		insertWinnerCard(playerTwo, playerOne);
 	}
-	document.querySelector('.player-one-vs').innerText = playerOne.toUpperCase();
-	document.querySelector('.player-two-vs').innerText = playerTwo.toUpperCase();
+
 }
 function updateValidation() {
 	if (parseInt(document.querySelector('.min-range').value) > parseInt(document.querySelector('.max-range').value)) {
@@ -223,4 +225,14 @@ function guessValidation(){
 	}
 }
 
+function insertWinnerCard(winner, loser) {
+	let aside = document.querySelector('aside');
+	aside.insertAdjacentHTML('afterbegin', `<article class="results">
+      <p><span class="player-one-vs">${winner}</span> <span class="vs"> VS</span> <span class="player-two-vs">${loser}</span></p>
+      <div class="challenger-container">
+	      <h3 class="winner">${winner}</h3>
+        <h3 class="winner-banner">WINNER</h3>
+      </div>
+    </article>`)
 
+}
