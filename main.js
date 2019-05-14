@@ -110,6 +110,7 @@ function p1CheckGuess() {
   if(p1Guess === guessNum) {
   	p1GuessHint.innerText = 'BOOM!';
     console.log('BOOM!');
+    checkWinner();
   } else if(p1Guess < guessNum) {
   	p1GuessHint.innerText = "that's too low!";
     console.log('player 1 is too low!');
@@ -125,6 +126,7 @@ function p2CheckGuess() {
   if(p2Guess === guessNum) {
   	p2GuessHint.innerText = 'BOOM!';
     console.log('BOOM!');
+    checkWinner();
   } else if(p2Guess < guessNum) {
   	p2GuessHint.innerText = "that's too low!";
     console.log('Player 2 is too low!');
@@ -211,6 +213,6 @@ function guessValidation(){
 		
 		console.log("This is not a valid input")
 	} else {
-		submitGuess();
+		submitPlayerNames();
 	}
 }
