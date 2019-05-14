@@ -86,6 +86,11 @@ article {
 
 }	
 
+input, 
+label {
+	display: block;
+}
+
  	/*Cards*/
 
 form {
@@ -96,10 +101,6 @@ h3 {
 	display: block;
 }
 
-label {
-
-}
-
 section.set-range {
 	margin: 10px;
 	height: 20%;
@@ -107,6 +108,16 @@ section.set-range {
 	color: #6E6E6E;
 }
 
+.range-form-min,
+.range-form-max {
+	display: flex;
+	flex-direction: column;
+}
+
+
+.set-range-form {
+	display: flex;
+}
 .set-range-button {
 	float: right;
 	background-color: #7f7f7f;
