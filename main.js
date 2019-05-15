@@ -14,8 +14,8 @@ var p1GuessHint = document.querySelector('.p1-guess-hint');
 var p2GuessHint = document.querySelector('.p2-guess-hint');
 var clearButton = document.querySelector('.clear-button');
 var resetButton = document.querySelector('.reset-button');
-var p1NameInput = document.querySelector('.player-one');
-var p2NameInput = document.querySelector('.player-two');
+var p1NameInput = document.querySelector('#p1');
+var p2NameInput = document.querySelector('#p2');
 var p1GuessInput = document.querySelector('.player-one-guess');
 var p2GuessInput = document.querySelector('.player-two-guess');
 var errorUpdateRange = document.querySelector('#error-range');
@@ -29,7 +29,7 @@ var p2GuessError = document.querySelector('#p2-guess-error');
 
 	// EVENT LISTENERS // 
 updateButton.addEventListener('click', updateValidation);
-guessButton.addEventListener('click', nameValidation);
+guessButton.addEventListener('click', p1NameValidation);
 clearButton.addEventListener('click', clearFieldButton);
 resetButton.addEventListener('click', resetAll);
 p1NameInput.addEventListener('keyup', enableClear);
@@ -209,37 +209,93 @@ function updateValidation() {
 	}
 }
 
-function nameValidation() {
+function p1NameValidation() {
 	if (document.querySelector('#p1').value.length === 0) {
+		p1NameInput.classList.add('error-border');
 		p1Error.innerText = "Enter a name";
 	}
-	if (document.querySelector('#p2').value.length === 0) {
-		p2Error.innerText = "Enter a name";
-	}
 	else {
+		p1NameInput.classList.remove('error-border');
 		p1Error.innerText = "";
-		p2Error.innerText = "";
-		guessValidation();
+		p2NameValidation();	
 	}
 }
 
-
-function guessValidation(){
-	if (isNaN(parseInt(document.querySelector('.player-one-guess').value)) || 
-		(isNaN(parseInt(document.querySelector('.player-two-guess').value)) || 
-		parseInt(document.querySelector('.player-one-guess').value) < minNum || 
-		parseInt(document.querySelector('.player-one-guess').value) > maxNum  ||
-		parseInt(document.querySelector('.player-two-guess').value) < minNum ||
-		parseInt(document.querySelector('.player-two-guess').value) > maxNum)) {
-		p1GuessError.innerText = "Please enter a number within the designated range.";
-		p2GuessError.innerText = "Please enter a number within the designated range";
-		console.log("This is not a valid input")
+function p2NameValidation() {
+	if (document.querySelector('#p2').value.length === 0) {
+		p2NameInput.classList.add('error-border');
+		p2Error.innerText = "Enter a name";
 	} else {
+		p2NameInput.classList.remove('error-border');
+		p2Error.innerText = "";
+		p1GuessValidation();
+	}
+}
+
+function p1GuessValidation() {
+
+	if (isNaN(parseInt(document.querySelector('.player-one-guess').value)) || 
+		parseInt(document.querySelector('.player-one-guess').value) < minNum || 
+		parseInt(document.querySelector('.player-one-guess').value) > maxNum) {
+		p1GuessInput.classList.add('error-border');
+		p1GuessError.innerText = "Enter a number within the current range.";
+	} else {
+		p1GuessInput.classList.remove('error-border');
 		p1GuessError.innerText = "";
+		p2GuessValidation();
+	}
+}
+
+function p2GuessValidation() {
+
+	if (isNaN(parseInt(document.querySelector('.player-two-guess').value)) || 
+		parseInt(document.querySelector('.player-two-guess').value) < minNum || 
+		parseInt(document.querySelector('.player-two-guess').value) > maxNum) {
+		p2GuessInput.classList.add('error-border');
+		p2GuessError.innerText = "Enter a number within the current range.";
+	} else {
+		p2GuessInput.classList.remove('error-border');
 		p2GuessError.innerText = "";
 		submitPlayerNames();
 	}
 }
+
+
+// function guessValidation() {
+// 	if (isNaN(parseInt(document.querySelector('.player-one-guess').value)) || 
+// 		(isNaN(parseInt(document.querySelector('.player-two-guess').value)) || 
+// 		parseInt(document.querySelector('.player-one-guess').value) < minNum || 
+// 		parseInt(document.querySelector('.player-one-guess').value) > maxNum  ||
+// 		parseInt(document.querySelector('.player-two-guess').value) < minNum ||
+// 		parseInt(document.querySelector('.player-two-guess').value) > maxNum)) {
+// 		p1GuessError.innerText = "Please enter a number within the designated range.";
+// 		p2GuessError.innerText = "Please enter a number within the designated range";
+// 		console.log("This is not a valid input")
+// 	} else {
+// 		p1GuessError.innerText = "";
+// 		p2GuessError.innerText = "";
+// 		submitPlayerNames();
+// 	}
+// }
+
+// function guessValidation() {
+
+// 	if (isNaN(parseInt(document.querySelector('.player-one-guess').value)) || 
+// 		parseInt(document.querySelector('.player-one-guess').value) < minNum || 
+// 		parseInt(document.querySelector('.player-one-guess').value) > maxNum) {
+// 		p1GuessError.innerText = "Enter a number within current range";
+// 	} 
+
+// 	if (isNaN(parseInt(document.querySelector('.player-two-guess').value)) ||
+// 		parseInt(document.querySelector('.player-two-guess').value) < minNum ||
+// 		parseInt(document.querySelector('.player-two-guess').value) > maxNum) {
+// 		p2GuessError.innerText = "Enter a number within current range";
+// 	} else {
+// 		p1GuessError.innerText = "";
+// 		p2GuessError.innerText = "";
+// 		submitPlayerNames();
+// 	}
+// }
 
 function insertWinnerCard(winner, loser) {
 	let aside = document.querySelector('aside');
