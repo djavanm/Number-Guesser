@@ -162,8 +162,7 @@ function resetAll() {
 	guessNum = getRandomNumber(1, 100);
 	updateMinMaxHtml(1, 100);
 	console.log(guessNum);
-	document.querySelector('#range-form-min').reset();
-  	document.querySelector('#range-form-max').reset();
+	document.querySelector('.set-range-form').reset();
   	document.querySelector('.min-range').innerText = '1';
   	document.querySelector('.min-range').innerText = '100';
   	clearFieldButton();
@@ -203,7 +202,7 @@ function updateValidation() {
 		errorUpdateRange.innerText = "Minimum Range must be smaller than Maximum Range.";
 		console.log("This is not a valid input");
 	} else {
-		errorUpdateRange.innerText = " ";
+		errorUpdateRange.innerText = "";
 		convertMinMax();
 	}
 }
@@ -215,10 +214,12 @@ function guessValidation(){
 		parseInt(document.querySelector('.player-one-guess').value) > maxNum  ||
 		parseInt(document.querySelector('.player-two-guess').value) < minNum ||
 		parseInt(document.querySelector('.player-two-guess').value) > maxNum)) {
-		p1Error.innerText = "Enter a Name";
-		p2Error.innerText = "Enter a Name";
+		p1Error.innerText = "Please enter a number within the designated range.";
+		p2Error.innerText = "Please enter a number within the designated range";
 		console.log("This is not a valid input")
 	} else {
+		p1Error.innerText = "";
+		p2Error.innerText = "";
 		submitPlayerNames();
 	}
 }

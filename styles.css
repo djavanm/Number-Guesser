@@ -108,6 +108,16 @@ section.set-range {
 	color: #6E6E6E;
 }
 
+.white-line {
+    width: 70px;
+    margin: auto;
+    border-top: 2px solid white;
+   /* z-index: 1;*/
+   /* position: relative;*/
+    text-align: center;
+    bottom: 30px;
+}
+
 .range-form-min,
 .range-form-max {
 	display: block;
@@ -184,7 +194,7 @@ input.player-two-guess {
 .game-buttons {
 	margin-top: 40px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 }
 
 .guess-button,
@@ -197,7 +207,6 @@ input.player-two-guess {
 	height: 50px;
 	width: 200px;
 	border-radius: 25px;
-	margin-right: 10px;
 	font-weight: 600;
 }
 
