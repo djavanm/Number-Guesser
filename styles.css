@@ -22,6 +22,7 @@ header {
 	text-align: center;
 	background-color: #404041;
 	color: #DD1972;
+	min-width: 550px;
 }
 
 h1 {
@@ -46,14 +47,13 @@ h2 {
 
 main {
 	width: 50%;
-	/*height: 650px;*/
 	display: inline-block;
 	background-color: #F7F7F7;
 	float: left;
 	display: flex;
 	flex-direction: column;
 	border: 1px solid #B5B6B6;
-	min-width: 510px;
+	min-width: 550px;
 }
 
 section {
@@ -110,28 +110,32 @@ section.set-range {
 
 .range-form-min,
 .range-form-max {
-	display: flex;
-	flex-direction: column;
+	display: block;
+}
+
+.range-container {
+	display: inline;
 }
 
 
 .set-range-form {
 	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
+
 .set-range-button {
-	float: right;
 	background-color: #7f7f7f;
 	color: #ffffff;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
-	height: 30px;
-	width: 100px;
+	height: 40px;
+	width: 150px;
 	right: 0px;
 	border-radius: 25px;
-	position: relative;
-	top: 25px;
+	margin-top: 15px;
 	font-weight: 600;
-
+	margin-left: 10px;
 }
 .error-text {
 	font-size: 14px;
@@ -166,10 +170,10 @@ input.player-two-guess {
 	height: 30px;
 }
 
-div.game-buttons {
+.game-buttons {
 	margin-top: 40px;
 	display: flex;
-	align-items: flex-end;
+	justify-content: space-between;
 }
 
 .guess-button,
@@ -179,8 +183,8 @@ div.game-buttons {
 	color: #ffffff;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
-	height: 35px;
-	width: 150px;
+	height: 50px;
+	width: 200px;
 	border-radius: 25px;
 	margin-right: 10px;
 	font-weight: 600;
@@ -194,7 +198,10 @@ div.game-buttons {
 .min-range,
 .max-range {
 	height: 30px;
-	width: 150px;
+	width: 200px;
+}
+.min-range {
+	margin-right: 10px;
 }
 
 .guess-container {
