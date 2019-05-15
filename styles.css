@@ -296,6 +296,19 @@ span.player-two-name {
 	border-bottom: 2px solid #B5B6B6;
 }
 
+.count {
+	font-weight: 700;
+	color: #404041;
+	float: left;
+	font-size: 15px;
+}
+
+.guess-count {
+	font-weight: 300;
+	color: #404041;
+	float: left;
+	font-size: 15px;
+}
 /* Button Styling*/
 
 button:hover,

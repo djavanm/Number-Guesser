@@ -2,6 +2,7 @@
 var guessNum = getRandomNumber(1, 100);
 var minNum = 1;
 var maxNum = 100;
+var counter = 0;
 var playerOne;
 var playerTwo;
 var p1Guess;
@@ -23,6 +24,7 @@ var p1Error = document.querySelector('#p1-error');
 var p2Error = document.querySelector('#p2-error');
 var p1GuessError = document.querySelector('#p1-guess-error');
 var p2GuessError = document.querySelector('#p2-guess-error');
+var guessCount = document.querySelector('.guess-count');
 
  // Guess Number on refresh! // 
  console.log(guessNum);
@@ -49,6 +51,13 @@ function getRandomNumber(min, max) {
 function convertMinMax() {
 	minNum = parseInt(document.querySelector('.min-range').value);
   	maxNum = parseInt(document.querySelector('.max-range').value);
+  	updateMinMaxHtml(minNum, maxNum);
+  	updateRandomNumber(minNum, maxNum);
+  	// .updateButton - takes min/max values and passes them as integers
+}
+
+function newGameMinMax() {
+	counter = 0;
   	updateMinMaxHtml(minNum, maxNum);
   	updateRandomNumber(minNum, maxNum);
   	// .updateButton - takes min/max values and passes them as integers
@@ -90,6 +99,7 @@ function submitGuess() {
 	console.log(p2Guess);
 	p1CheckGuess();
 	p2CheckGuess();
+	counter++;
 	clearButton.disabled = false;
 	resetButton.disabled = false;
 	// assigns new values to p1guess and p2guess
@@ -191,11 +201,13 @@ function checkWinner() {
 		var winner = playerOne.toUpperCase();
 		var loser = playerTwo.toUpperCase();
 		insertWinnerCard(playerOne, playerTwo);
+		newGameMinMax();
 	}
 	if (p2Guess === guessNum) {
 		var winner = playerTwo.toUpperCase();
 		var loser = playerOne.toUpperCase();
 		insertWinnerCard(playerTwo, playerOne);
+		newGameMinMax();
 	}
 
 }
@@ -305,6 +317,7 @@ function insertWinnerCard(winner, loser) {
 	      <h3 class="winner">${winner}</h3>
         <h3 class="winner-banner">WINNER</h3>
       </div>
+      <p class="guess-count"><span class="count">${counter}</span>&nbsp;GUESSES</p>
     </article>`)
 
 }
