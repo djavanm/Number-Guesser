@@ -21,13 +21,15 @@ var p2GuessInput = document.querySelector('.player-two-guess');
 var errorUpdateRange = document.querySelector('#error-range');
 var p1Error = document.querySelector('#p1-error');
 var p2Error = document.querySelector('#p2-error');
+var p1GuessError = document.querySelector('#p1-guess-error');
+var p2GuessError = document.querySelector('#p2-guess-error');
 
  // Guess Number on refresh! // 
  console.log(guessNum);
 
 	// EVENT LISTENERS // 
 updateButton.addEventListener('click', updateValidation);
-guessButton.addEventListener('click', guessValidation);
+guessButton.addEventListener('click', nameValidation);
 clearButton.addEventListener('click', clearFieldButton);
 resetButton.addEventListener('click', resetAll);
 p1NameInput.addEventListener('keyup', enableClear);
@@ -207,6 +209,21 @@ function updateValidation() {
 	}
 }
 
+function nameValidation() {
+	if (document.querySelector('#p1').value.length === 0) {
+		p1Error.innerText = "Enter a name";
+	}
+	if (document.querySelector('#p2').value.length === 0) {
+		p2Error.innerText = "Enter a name";
+	}
+	else {
+		p1Error.innerText = "";
+		p2Error.innerText = "";
+		guessValidation();
+	}
+}
+
+
 function guessValidation(){
 	if (isNaN(parseInt(document.querySelector('.player-one-guess').value)) || 
 		(isNaN(parseInt(document.querySelector('.player-two-guess').value)) || 
@@ -214,12 +231,12 @@ function guessValidation(){
 		parseInt(document.querySelector('.player-one-guess').value) > maxNum  ||
 		parseInt(document.querySelector('.player-two-guess').value) < minNum ||
 		parseInt(document.querySelector('.player-two-guess').value) > maxNum)) {
-		p1Error.innerText = "Please enter a number within the designated range.";
-		p2Error.innerText = "Please enter a number within the designated range";
+		p1GuessError.innerText = "Please enter a number within the designated range.";
+		p2GuessError.innerText = "Please enter a number within the designated range";
 		console.log("This is not a valid input")
 	} else {
-		p1Error.innerText = "";
-		p2Error.innerText = "";
+		p1GuessError.innerText = "";
+		p2GuessError.innerText = "";
 		submitPlayerNames();
 	}
 }
