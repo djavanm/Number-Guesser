@@ -142,8 +142,6 @@ function p2CheckGuess() {
 function clearFieldButton() {
 	document.querySelector('.player-one').reset();
 	document.querySelector('.player-two').reset();
-	document.querySelector('.player-one-guess-form').reset();
-	document.querySelector('.player-two-guess-form').reset();
 	disableClear();
 	// Clears player & guess input fields, calls clearGuessNum to clear numbers and innher HTML
 }
