@@ -25,6 +25,8 @@ var p2Error = document.querySelector('#p2-error');
 var p1GuessError = document.querySelector('#p1-guess-error');
 var p2GuessError = document.querySelector('#p2-guess-error');
 var guessCount = document.querySelector('.guess-count');
+var winButton = document.querySelector('.win-button');
+var aside = document.querySelector('aside');
 
  // Guess Number on refresh! // 
  console.log(guessNum);
@@ -38,6 +40,14 @@ p1NameInput.addEventListener('keyup', enableClear);
 p2NameInput.addEventListener('keyup', enableClear);
 p1GuessInput.addEventListener('keyup', enableClear);
 p2GuessInput.addEventListener('keyup', enableClear);
+
+
+aside.addEventListener('click', function (e) {
+	if (e.target.className === 'win-button') {
+		e.target.closest('article').remove();
+	}
+})
+
 	
 	// GLOBAL FUNCTIONS // 
 
@@ -212,11 +222,21 @@ function checkWinner() {
 
 }
 function updateValidation() {
-	if (parseInt(document.querySelector('.min-range').value) > parseInt(document.querySelector('.max-range').value)) {
-		errorUpdateRange.innerText = "Minimum Range must be smaller than Maximum Range.";
-		console.log("This is not a valid input");
+	if (document.querySelector('.min-range').value.length === 0 || document.querySelector('.max-range').value.length === 0) {
+	errorUpdateRange.innerHTML = "";
+	errorUpdateRange.insertAdjacentHTML('afterbegin', `<img src="error-icon.svg" height="10px" width="10px">&nbsp;Please enter a value for the Minimum and Maximum Range.`)
+
+	}
+
+	else if (parseInt(document.querySelector('.min-range').value) > parseInt(document.querySelector('.max-range').value)) {
+		errorUpdateRange.innerHTML = "";
+		errorUpdateRange.insertAdjacentHTML('afterbegin', `<img src="error-icon.svg" height="10px" width="10px">&nbsp;Minimum Range must be smaller than Maximum Range.`)
+		document.querySelector('.min-range').classList.add('error-border');
+		document.querySelector('.max-range').classList.add('error-border');
 	} else {
 		errorUpdateRange.innerText = "";
+		document.querySelector('.min-range').classList.remove('error-border');
+		document.querySelector('.max-range').classList.remove('error-border');
 		convertMinMax();
 	}
 }
@@ -224,7 +244,8 @@ function updateValidation() {
 function p1NameValidation() {
 	if (document.querySelector('#p1').value.length === 0) {
 		p1NameInput.classList.add('error-border');
-		p1Error.innerText = "Enter a name";
+		p1Error.innerHTML = "";
+		p1Error.insertAdjacentHTML('afterbegin', `<img src="error-icon.svg" height="10px" width="10px">&nbsp;Enter a name.`)
 	}
 	else {
 		p1NameInput.classList.remove('error-border');
@@ -236,7 +257,8 @@ function p1NameValidation() {
 function p2NameValidation() {
 	if (document.querySelector('#p2').value.length === 0) {
 		p2NameInput.classList.add('error-border');
-		p2Error.innerText = "Enter a name";
+		p2Error.innerHTML = "";
+		p2Error.insertAdjacentHTML('afterbegin', `<img src="error-icon.svg" height="10px" width="10px">&nbsp;Enter a name.`)
 	} else {
 		p2NameInput.classList.remove('error-border');
 		p2Error.innerText = "";
@@ -250,7 +272,9 @@ function p1GuessValidation() {
 		parseInt(document.querySelector('.player-one-guess').value) < minNum || 
 		parseInt(document.querySelector('.player-one-guess').value) > maxNum) {
 		p1GuessInput.classList.add('error-border');
-		p1GuessError.innerText = "Enter a number within the current range.";
+		p1GuessError.innerHTML = "";
+		p1GuessError.insertAdjacentHTML('afterbegin', `<img src="error-icon.svg" height="10px" width="10px">&nbsp;Enter a number within the current range.`)
+		// p1GuessError.innerText = "Enter a number within the current range.";
 	} else {
 		p1GuessInput.classList.remove('error-border');
 		p1GuessError.innerText = "";
@@ -264,13 +288,32 @@ function p2GuessValidation() {
 		parseInt(document.querySelector('.player-two-guess').value) < minNum || 
 		parseInt(document.querySelector('.player-two-guess').value) > maxNum) {
 		p2GuessInput.classList.add('error-border');
-		p2GuessError.innerText = "Enter a number within the current range.";
+		p2GuessError.insertAdjacentHTML('afterbegin', `<img src="error-icon.svg" height="10px" width="10px">&nbsp;Enter a number within the current range.`)
+		// p2GuessError.innerText = "Enter a number within the current range.";
 	} else {
 		p2GuessInput.classList.remove('error-border');
 		p2GuessError.innerText = "";
 		submitPlayerNames();
 	}
 }
+
+
+
+
+// winButton.addEventListener('click', function (e) {
+// 	if (e.target.id === 'win-button') {
+// 		e.target.closest('article').remove();
+// 	}
+// })
+
+
+// function removeWinnerCard(e) {
+// 	console.log(e.target.class);
+// 	if (e.target.class === 'win-button') {
+// 	e.target.closest('article').remove();
+// 	}
+// }
+
 
 
 // function guessValidation() {
@@ -310,7 +353,7 @@ function p2GuessValidation() {
 // }
 
 function insertWinnerCard(winner, loser) {
-	let aside = document.querySelector('aside');
+	aside = document.querySelector('aside');
 	aside.insertAdjacentHTML('afterbegin', `<article class="results">
       <p><span class="player-one-vs">${winner}</span> <span class="vs"> VS</span> <span class="player-two-vs">${loser}</span></p>
       <div class="challenger-container">
@@ -318,6 +361,6 @@ function insertWinnerCard(winner, loser) {
         <h3 class="winner-banner">WINNER</h3>
       </div>
       <p class="guess-count"><span class="count">${counter}</span>&nbsp;GUESSES</p>
+      <button class="win-button" type="button">TEST</button>
     </article>`)
-
 }
