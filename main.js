@@ -94,8 +94,6 @@ function updateRandomNumber(min, max) {
 function submitPlayerNames() {
 	playerOne = document.querySelector('#p1').value;
 	playerTwo = document.querySelector('#p2').value;
-	console.log(playerOne);
-	console.log(playerTwo);
 	updateChallengerHTML(playerOne, playerTwo)
 	submitGuess();
 	checkWinner();
@@ -107,8 +105,6 @@ function submitGuess() {
 	p1Guess = parseInt(document.querySelector('.player-one-guess').value);
 	p2Guess = parseInt(document.querySelector('.player-two-guess').value);
 	updateGuessHTML(p1Guess, p2Guess);
-	console.log(p1Guess);
-	console.log(p2Guess);
 	p1CheckGuess();
 	p2CheckGuess();
 	counter++;
@@ -136,13 +132,10 @@ function updateGuessHTML(player1, player2) {
 function p1CheckGuess() {
   if(p1Guess === guessNum) {
   	p1GuessHint.innerText = 'BOOM!';
-    console.log('BOOM!');
   } else if(p1Guess < guessNum) {
   	p1GuessHint.innerText = "that's too low!";
-    console.log('player 1 is too low!');
   } else {
   	p1GuessHint.innerText = "that's too high!";
-    console.log('player 1 is too high!');
   };
 };
 // Checks values of player one guess, returns answers and updates HTML. May refactor.
@@ -151,13 +144,10 @@ function p1CheckGuess() {
 function p2CheckGuess() {
   if(p2Guess === guessNum) {
   	p2GuessHint.innerText = 'BOOM!';
-    console.log('BOOM!');
   } else if(p2Guess < guessNum) {
   	p2GuessHint.innerText = "that's too low!";
-    console.log('Player 2 is too low!');
   } else {
   	p2GuessHint.innerText = "that's too high!";
-    console.log('Player 2 is too high!');
   };
 };
 // Checks values of player one guess, returns answers and updates HTML. May refactor.
@@ -208,7 +198,6 @@ function disableReset() {
 	// Enable and Disable buttons upon use
 
 function checkWinner() {
-	console.log('Running check winner')
 	if (p1Guess === guessNum) {
 		var winner = playerOne.toUpperCase();
 		var loser = playerTwo.toUpperCase();
@@ -221,6 +210,7 @@ function checkWinner() {
 	}
 
 }
+
 function updateValidation() {
 	if (document.querySelector('.min-range').value.length === 0 || document.querySelector('.max-range').value.length === 0) {
 	errorUpdateRange.innerHTML = "";
@@ -297,61 +287,6 @@ function p2GuessValidation() {
 		submitPlayerNames();
 	}
 }
-
-
-
-
-// winButton.addEventListener('click', function (e) {
-// 	if (e.target.id === 'win-button') {
-// 		e.target.closest('article').remove();
-// 	}
-// })
-
-
-// function removeWinnerCard(e) {
-// 	console.log(e.target.class);
-// 	if (e.target.class === 'win-button') {
-// 	e.target.closest('article').remove();
-// 	}
-// }
-
-
-
-// function guessValidation() {
-// 	if (isNaN(parseInt(document.querySelector('.player-one-guess').value)) || 
-// 		(isNaN(parseInt(document.querySelector('.player-two-guess').value)) || 
-// 		parseInt(document.querySelector('.player-one-guess').value) < minNum || 
-// 		parseInt(document.querySelector('.player-one-guess').value) > maxNum  ||
-// 		parseInt(document.querySelector('.player-two-guess').value) < minNum ||
-// 		parseInt(document.querySelector('.player-two-guess').value) > maxNum)) {
-// 		p1GuessError.innerText = "Please enter a number within the designated range.";
-// 		p2GuessError.innerText = "Please enter a number within the designated range";
-// 		console.log("This is not a valid input")
-// 	} else {
-// 		p1GuessError.innerText = "";
-// 		p2GuessError.innerText = "";
-// 		submitPlayerNames();
-// 	}
-// }
-
-// function guessValidation() {
-
-// 	if (isNaN(parseInt(document.querySelector('.player-one-guess').value)) || 
-// 		parseInt(document.querySelector('.player-one-guess').value) < minNum || 
-// 		parseInt(document.querySelector('.player-one-guess').value) > maxNum) {
-// 		p1GuessError.innerText = "Enter a number within current range";
-// 	} 
-
-// 	if (isNaN(parseInt(document.querySelector('.player-two-guess').value)) ||
-// 		parseInt(document.querySelector('.player-two-guess').value) < minNum ||
-// 		parseInt(document.querySelector('.player-two-guess').value) > maxNum) {
-// 		p2GuessError.innerText = "Enter a number within current range";
-// 	} else {
-// 		p1GuessError.innerText = "";
-// 		p2GuessError.innerText = "";
-// 		submitPlayerNames();
-// 	}
-// }
 
 function insertWinnerCard(winner, loser) {
 	aside = document.querySelector('aside');
