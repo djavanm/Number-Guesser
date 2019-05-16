@@ -1,48 +1,48 @@
 	/* Global */
 
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	width: 100%;
-	height: 100%;
 	background-color: #D0D2D3;
 	color: #404041;
+	height: 100%;
 	padding: 5px;
+	width: 100%;
 }
 
 	/* Header */
 	
 header {
-	text-align: center;
 	background-color: #404041;
 	color: #DD1972;
 	min-width: 650px;
 	padding-bottom: 10px;
+	text-align: center;
 }
 
 h1 {
 	font-size: 58px;
-	padding-right: 5px;
 	margin-bottom: -10px;
+	padding-right: 5px;
 }
 
 .h1-style {
-	text-decoration: none;
 	font-weight: 300;
+	text-decoration: none;
 }
 
 h2 {
-	display: flex;
 	align-items: center;
-	font-family: 14px;
-	font-weight: 300;
 	color: #ffffff;
+	display: flex;
+	font-family: 14px;
 	font-size: 24px;
+	font-weight: 300;
 	justify-content: center;
 
 }
@@ -52,47 +52,47 @@ h2 {
 
 
 main {
-	width: 50%;
-	display: inline-block;
 	background-color: #F7F7F7;
-	float: left;
-	display: flex;
-	flex-direction: column;
 	border: 1px solid #B5B6B6;
+	display: flex;
+	display: inline-block;
+	flex-direction: column;
+	float: left;
 	min-width: 625px;
+	width: 50%;
 }
 
 section {
-	height: 33.3%;
 	background-color: #ffffff;
 	border: 1px solid #D0D2D3;
+	height: 33.3%;
+	height: 400px;
 	min-width: 300px;
 	padding: 10px;
-	height: 400px;
 }
 
 aside {
-	width: 50%;
-	height: 650px;
-	display: inline-block;
 	background-color: #D1D2D4;
 	color: white;
-	float: right;
 	display: flex;
+	display: inline-block;
 	flex-direction: column;
+	float: right;
+	height: 650px;
 	min-width: 510px;
+	width: 50%;
 }
 
 article {
 	background-color: #ffffff;
-	color: #404041;;
 	border: 1px solid #B5B6B6;
+	color: #404041;
+	height: 30%;
 	padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 10px;
     margin-left: 40px;
     margin-right: 40px;
-
+    margin-top: 10px;
+    padding-right: 20px;
 }	
 
 input, 
@@ -112,17 +112,17 @@ h3 {
 }
 
 section.set-range {
-	margin: 10px;
-	height: 20%;
 	background-color: #ffffff;
 	color: #6E6E6E;
+	height: 20%;
+	margin: 10px;
 }
 
 .white-line {
-    width: 70px;
     border-top: 2px solid white;
-    text-align: center;
     bottom: 30px;
+    text-align: center;
+    width: 70px;
 }
 
 .range-form-min,
@@ -143,21 +143,21 @@ section.set-range {
 
 .set-range-button {
 	background-color: #7f7f7f;
+	border-radius: 25px;
 	color: #ffffff;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 17px;
-	height: 40px;
-	width: 150px;
-	right: 0px;
-	border-radius: 25px;
-	margin-top: 15px;
 	font-weight: 600;
+	height: 40px;
 	margin-left: 10px;
+	margin-top: 15px;
+	right: 0px;
+	width: 150px;
 }
 
 .error-text {
-	font-size: 12px;
 	color: #DD1972;
+	font-size: 12px;
 }
 
 .start-range,
@@ -180,8 +180,8 @@ section.challengers {
 
 input.player-one,
 input.player-two {
-	width: 300px;
 	height: 30px;
+	width: 300px;
 }
 
 .input-container {
@@ -190,27 +190,27 @@ input.player-two {
 
 .player-one-guess,
 .player-two-guess {
-	width: 250px;
 	height: 30px;
+	width: 250px;
 }
 
 .game-buttons {
-	margin-top: 40px;
 	display: flex;
 	justify-content: space-evenly;
+	margin-top: 40px;
 }
 
 .guess-button,
 .reset-button,
 .clear-button {
 	background-color: #7f7f7f;
+	border-radius: 25px;
 	color: #ffffff;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 18px;
+	font-weight: 600;
 	height: 35px;
 	width: 180px;
-	border-radius: 25px;
-	font-weight: 600;
 }
 
 .latest-score {
@@ -239,8 +239,8 @@ input.player-two {
 .p1-current-guess,
 .p2-current-guess {
 	height: 150px;
-	width: 200px;
 	text-align: center;
+	width: 200px;
 }
 
 .p1-current-guess {
@@ -249,17 +249,17 @@ input.player-two {
 
 .p1-guess-num,
 .p2-guess-num {
-	font-size: 70px;
 	color: #DD1972;
+	font-size: 70px;
 	font-weight: 700;
 	margin: -10px;
 }
 
 .player-one-name,
 .player-two-name {
-	font-weight: 600;
 	color: #404041;
 	font-size: 16px;
+	font-weight: 600;
 }
 
 .current-guess-text {
@@ -280,9 +280,9 @@ input.player-two {
 	text-align: center;
 }
 .winner-banner {
+	color: #7f7f7f;
 	font-size: 36px;
 	font-weight: 300;
-	color: #7f7f7f;
 }
 
 span.player-one-name,
@@ -291,12 +291,12 @@ span.player-two-name {
 }
 
 .vs {
+	bottom: 5px;
 	font-size: 12px;
+	margin-bottom: 20px;
 	margin-left: 70px;
 	margin-right: 70px;
-	margin-bottom: 20px;
 	position: relative;
-	bottom: 5px;
 }
 
 .winner {
@@ -305,25 +305,25 @@ span.player-two-name {
 }
 
 .challenger-container {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	border-top: 2px solid #D0D2D3;
 	border-bottom: 2px solid #D0D2D3;
+	border-top: 2px solid #D0D2D3;
 	height: 120px;
+	padding-bottom: 5px;
+	padding-top: 5px;
 }
 
 .count {
-	font-weight: 700;
 	color: #404041;
 	float: left;
 	font-size: 15px;
+	font-weight: 700;
 }
 
 .guess-count {
-	font-weight: 300;
 	color: #404041;
 	float: left;
 	font-size: 15px;
+	font-weight: 300;
 }
 
 /* Button Styling */
@@ -340,14 +340,14 @@ button[disabled] {
 
 .win-button {
 	background-color: #404041;
-	height: 20px;
-	width: 22px;
 	border-radius: 50%;
 	color: #D0D2D3;
 	float: right;
 	font-size: 14px;
+	height: 20px;
 	margin-top: 5px;
 	padding-bottom: 20px;
+	width: 22px;
 }
 
 .player-one-vs,
@@ -371,6 +371,7 @@ button[disabled] {
 	/* @ Media */
 
 @media screen and (max-width: 1275px) {
+
 main {
 	width: 50%;
 } 
@@ -378,7 +379,7 @@ main {
 aside {
 float: left;
 }
-}
+
 
 @media screen and (max-width: 650px) {
 
@@ -389,15 +390,17 @@ header {
 main{
 	min-width: 500px;
 }
+}
 
 .guess-container {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 }
+
 .p1-current-guess {
-	border-right: none;
 	border-bottom: 2px solid #D0D2D3;
+	border-right: none;
 	width: 70%;
 }
 
@@ -423,11 +426,11 @@ main{
 }
 
  .game-buttons {
+ 	bottom-margin: 10px;
  	display: flex;
  	flex-direction: column;
  	justify-content: center;
  	width: 100%;
- 	bottom-margin: 10px;
  }
 
 #p1,
@@ -437,19 +440,19 @@ main{
 
 .player-one-guess,
 .player-two-guess {
-	width: 450px;
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	width: 450px;
 }
 
 .guess-button,
 .reset-button,
 .clear-button {
-	margin-top: 10px;
-	height: 35px;
-	width: 70%;
+	align-self: center;
 	border-radius: 25px;
 	font-weight: 600;
-	align-self: center;
+	height: 35px;
+	margin-top: 10px;
+	width: 70%;
 }
 }

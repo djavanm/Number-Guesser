@@ -1,4 +1,5 @@
 	// GLOBAL VARIABLES //
+
 var guessNum = getRandomNumber(1, 100);
 var minNum = 1;
 var maxNum = 100;
@@ -27,11 +28,10 @@ var p2GuessError = document.querySelector('#p2-guess-error');
 var guessCount = document.querySelector('.guess-count');
 var winButton = document.querySelector('.win-button');
 var aside = document.querySelector('aside');
-
- // Guess Number on refresh! // 
  console.log(guessNum);
 
 	// EVENT LISTENERS // 
+
 updateButton.addEventListener('click', updateValidation);
 guessButton.addEventListener('click', p1NameValidation);
 clearButton.addEventListener('click', clearFieldButton);
@@ -41,21 +41,18 @@ p2NameInput.addEventListener('keyup', enableClear);
 p1GuessInput.addEventListener('keyup', enableClear);
 p2GuessInput.addEventListener('keyup', enableClear);
 
-
 aside.addEventListener('click', function (e) {
 	if (e.target.className === 'win-button') {
 		e.target.closest('article').remove();
 	}
 })
 
-	
 	// GLOBAL FUNCTIONS // 
 
 function getRandomNumber(min, max) {
     var randNum = Math.random() * (max - min) + min;
     randNum = Math.floor(randNum);
     return randNum;
-    // creates random number for guessNum on page load
 }
 
 function convertMinMax() {
@@ -63,7 +60,6 @@ function convertMinMax() {
   	maxNum = parseInt(document.querySelector('.max-range').value);
   	updateMinMaxHtml(minNum, maxNum);
   	updateRandomNumber(minNum, maxNum);
-  	// .updateButton - takes min/max values and passes them as integers
 }
 
 function newGameMinMax() {
@@ -72,7 +68,6 @@ function newGameMinMax() {
 	maxNum = maxNum + 10;
   	updateMinMaxHtml(minNum, maxNum);
   	updateRandomNumber(minNum, maxNum);
-  	// .updateButton - takes min/max values and passes them as integers
 }
 
 function updateMinMaxHtml(min, max) {
@@ -80,7 +75,6 @@ function updateMinMaxHtml(min, max) {
 	var end = document.querySelector('.end-range');
 	start.innerText = min;
 	end.innerText = max;
-	// Updates HTML with new min/max values
 }
 
 function updateRandomNumber(min, max) {
@@ -88,7 +82,6 @@ function updateRandomNumber(min, max) {
     newNum = Math.floor(newNum);
     guessNum = newNum;
     console.log(guessNum);
-    // updates guessNum with user min/max values
 }
 
 function submitPlayerNames() {
@@ -97,8 +90,6 @@ function submitPlayerNames() {
 	updateChallengerHTML(playerOne, playerTwo)
 	submitGuess();
 	checkWinner();
-	// assigns new values to player one and player two
-	// invokes submitGuess to assign guesses
 }
 
 function submitGuess() {
@@ -110,7 +101,6 @@ function submitGuess() {
 	counter++;
 	clearButton.disabled = false;
 	resetButton.disabled = false;
-	// assigns new values to p1guess and p2guess
 }
 
 function updateChallengerHTML(player1, player2) {
@@ -118,15 +108,13 @@ function updateChallengerHTML(player1, player2) {
 	playerTwoName = document.querySelector('.player-two-name');
 	playerOneName.innerText = player1;
 	playerTwoName.innerText = player2;
-	// Updastes HTML with new player name values
 }
 
 function updateGuessHTML(player1, player2) {
 	var playerOneGuess = document.querySelector('.p1-guess-num');
 	var playerTwoGuess = document.querySelector('.p2-guess-num');
 	playerOneGuess.innerText = player1;
-	playerTwoGuess.innerText = player2;
-	// Adds guess number HTML 
+	playerTwoGuess.innerText = player2; 
 }
 
 function p1CheckGuess() {
@@ -138,8 +126,6 @@ function p1CheckGuess() {
   	p1GuessHint.innerText = "that's too high!";
   };
 };
-// Checks values of player one guess, returns answers and updates HTML. May refactor.
-
 
 function p2CheckGuess() {
   if(p2Guess === guessNum) {
@@ -150,14 +136,11 @@ function p2CheckGuess() {
   	p2GuessHint.innerText = "that's too high!";
   };
 };
-// Checks values of player one guess, returns answers and updates HTML. May refactor.
-
 
 function clearFieldButton() {
 	document.querySelector('.player-one').reset();
 	document.querySelector('.player-two').reset();
 	disableClear();
-	// Clears player & guess input fields, calls clearGuessNum to clear numbers and innher HTML
 }
 
 function clearGuessNum() {
@@ -169,7 +152,6 @@ function clearGuessNum() {
 	p2GuessHint.innerText = ' ';
 	playerOneName.innerText = ' ';
 	playerTwoName.innerText = ' ';
-	// Clears player name HTML, Guess HTML, and guess hint HTML
 }
 
 function resetAll() {
@@ -181,8 +163,7 @@ function resetAll() {
   	document.querySelector('.min-range').innerText = '100';
   	clearFieldButton();
   	disableReset();
-  	// Reset all inputs and clear inner text
-}
+  }
  
 function enableClear() {
 	clearButton.disabled = false;
@@ -195,7 +176,6 @@ function disableClear() {
 function disableReset() {
 	resetButton.disabled = true;
 }
-	// Enable and Disable buttons upon use
 
 function checkWinner() {
 	if (p1Guess === guessNum) {
@@ -264,7 +244,6 @@ function p1GuessValidation() {
 		p1GuessInput.classList.add('error-border');
 		p1GuessError.innerHTML = "";
 		p1GuessError.insertAdjacentHTML('afterbegin', `<img src="error-icon.svg" height="10px" width="10px">&nbsp;Enter a number within the current range.`)
-		// p1GuessError.innerText = "Enter a number within the current range.";
 	} else {
 		p1GuessInput.classList.remove('error-border');
 		p1GuessError.innerText = "";
@@ -280,7 +259,6 @@ function p2GuessValidation() {
 		p2GuessInput.classList.add('error-border');
 		p2GuessError.innerText = "";
 		p2GuessError.insertAdjacentHTML('afterbegin', `<img src="error-icon.svg" height="10px" width="10px">&nbsp;Enter a number within the current range.`)
-		// p2GuessError.innerText = "Enter a number within the current range.";
 	} else {
 		p2GuessInput.classList.remove('error-border');
 		p2GuessError.innerText = "";
