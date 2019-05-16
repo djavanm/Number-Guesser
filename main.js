@@ -68,6 +68,8 @@ function convertMinMax() {
 
 function newGameMinMax() {
 	counter = 0;
+	minNum = minNum - 10;
+	maxNum = maxNum + 10;
   	updateMinMaxHtml(minNum, maxNum);
   	updateRandomNumber(minNum, maxNum);
   	// .updateButton - takes min/max values and passes them as integers
@@ -210,14 +212,12 @@ function checkWinner() {
 	if (p1Guess === guessNum) {
 		var winner = playerOne.toUpperCase();
 		var loser = playerTwo.toUpperCase();
-		insertWinnerCard(playerOne, playerTwo);
-		newGameMinMax();
+		insertWinnerCard(winner, loser);
 	}
 	if (p2Guess === guessNum) {
 		var winner = playerTwo.toUpperCase();
 		var loser = playerOne.toUpperCase();
-		insertWinnerCard(playerTwo, playerOne);
-		newGameMinMax();
+		insertWinnerCard(winner, loser);
 	}
 
 }
@@ -288,6 +288,7 @@ function p2GuessValidation() {
 		parseInt(document.querySelector('.player-two-guess').value) < minNum || 
 		parseInt(document.querySelector('.player-two-guess').value) > maxNum) {
 		p2GuessInput.classList.add('error-border');
+		p2GuessError.innerText = "";
 		p2GuessError.insertAdjacentHTML('afterbegin', `<img src="error-icon.svg" height="10px" width="10px">&nbsp;Enter a number within the current range.`)
 		// p2GuessError.innerText = "Enter a number within the current range.";
 	} else {
@@ -355,12 +356,13 @@ function p2GuessValidation() {
 function insertWinnerCard(winner, loser) {
 	aside = document.querySelector('aside');
 	aside.insertAdjacentHTML('afterbegin', `<article class="results">
-      <p><span class="player-one-vs">${winner}</span> <span class="vs"> VS</span> <span class="player-two-vs">${loser}</span></p>
+      <p class="winner-text"><span class="player-one-vs">${winner}</span> <span class="vs"> VS</span> <span class="player-two-vs">${loser}</span></p>
       <div class="challenger-container">
 	      <h3 class="winner">${winner}</h3>
         <h3 class="winner-banner">WINNER</h3>
       </div>
       <p class="guess-count"><span class="count">${counter}</span>&nbsp;GUESSES</p>
-      <button class="win-button" type="button">TEST</button>
+      <button class="win-button" type="button">x</button>
     </article>`)
+    newGameMinMax();
 }

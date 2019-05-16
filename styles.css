@@ -27,7 +27,7 @@ header {
 }
 
 h1 {
-	font-size: 51px;
+	font-size: 58px;
 	padding-right: 5px;
 	margin-bottom: -10px;
 }
@@ -60,7 +60,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	border: 1px solid #B5B6B6;
-	min-width: 550px;
+	min-width: 625px;
 }
 
 section {
@@ -69,6 +69,7 @@ section {
 	border: 1px solid #D0D2D3;
 	min-width: 300px;
 	padding: 10px;
+	height: 400px;
 }
 
 aside {
@@ -84,12 +85,16 @@ aside {
 }
 
 article {
-	height: 25%;
-	margin: 10px 25px 10px 25px;
+	/*margin: 10px 25px 10px 25px;*/
 	background-color: #ffffff;
 	color: #404041;;
 	border: 1px solid #B5B6B6;
-	padding: 10px;
+	/*padding: 10px;*/
+	padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
 
 }	
 
@@ -289,17 +294,24 @@ span.player-two-name {
 
 .vs {
 	font-size: 12px;
+	margin-left: 70px;
+	margin-right: 70px;
+	margin-bottom: 20px;
+	position: relative;
+	bottom: 5px;
 }
 
 .winner {
-	font-size: 30px;
+	font-size: 40px;
+	margin-bottom: -15px;
 }
 
 .challenger-container {
 	padding-top: 5px;
 	padding-bottom: 5px;
-	border-top: 2px solid #B5B6B6;
-	border-bottom: 2px solid #B5B6B6;
+	border-top: 2px solid #D0D2D3;
+	border-bottom: 2px solid #D0D2D3;
+	height: 120px;
 }
 
 .count {
@@ -315,6 +327,7 @@ span.player-two-name {
 	float: left;
 	font-size: 15px;
 }
+
 /* Button Styling*/
 
 button:hover,
@@ -325,4 +338,34 @@ button:active {
 button:disabled,
 button[disabled] {
   background-color: #D0D2D3;
+}
+
+.win-button {
+	background-color: #404041;
+	height: 20px;
+	width: 22px;
+	border-radius: 50%;
+	color: #D0D2D3;
+	float: right;
+	font-size: 14px;
+	margin-top: 5px;
+	padding-bottom: 20px;
+}
+
+.player-one-vs,
+.player-two-vs {
+	font-size: 22px;
+	font-weight: 600;
+	margin-bottom: 10px;
+
+}
+
+.winner-text {
+	margin-bottom: 5px;
+	padding-top: 5px;
+}
+
+.guess-count {
+	padding-top: 5px;
+	padding-bottom: 10px;
 }
